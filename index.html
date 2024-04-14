@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kirjoitusresidenssi Le Galetas</title>
+    <meta name="keywords" content="Kirjoitusresidenssi, Le Galetas, luova työ, Thiers, Ranska">
+    <meta name="description" content="Kirjoitusresidenssi Le Galetas tarjoaa luovan työn tekijöille viihtyisät työskentelyolosuhteet keskellä Ranskaa omaperäisessä Thiersin kaupungissa.">
     <style>
         * {
             box-sizing: border-box;
@@ -19,7 +21,7 @@
         /* Nav */
         header {
             background: #000338;
-            padding: 2rem 0;
+            padding: 20px;
             margin: 0;
             display: flex;
             position: sticky;
@@ -28,35 +30,64 @@
         }
         nav {
             width: 100%;
+            display: flex;
+            justify-content: center;
         }
+
         nav ul {
             list-style: none;
-            margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             width: 100%;
-            max-width: 800px;
+            max-width: 760px;
+            margin: 0;
+            padding: 0;
         }
         nav ul li {
-            line-height: 1rem;
+            line-height:40px;
+        }
+        nav button {
+            flex-shrink: 0;
+            background: #fff;
+            color: #000338;
+            border: none;
+            padding: 10px;
+            width: 40px;
+            height:40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        nav button:first-of-type {
+            margin-left: 30px;
+        }
+        h1 {
+            all: unset;
         }
         nav ul li a {
             text-decoration: none;
             color: #fff;
         }
 
+        @media (max-width: 620px) {
+            nav {
+                display: block;
+                text-align: center;
+            }
+            nav button {
+                margin: 10px;
+            }
+        }
+
         /* Hero */
+        .hero {
+            text-align: center;
+            max-width: 700px;
+            text-wrap: balance;
+        }
         .hero img {
             display: block;
             margin: 0 auto;
-        }
-        h1 {
-            text-align: center;
-        }
-        h1+p {
-            text-align: center;
-            font-style: italic;
         }
 
         /* Other */
@@ -81,13 +112,48 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1em
+            gap: 1em;
         }
         .gallery img {
-            height: 200px;
-            max-width: 300px;
+            width: 200px;
+            width: calc(760px/3 - 2em);
+            max-height: 200px;
             flex-grow: 1;
+            flex-shrink: 1;
             object-fit: cover;
+        }
+
+
+        @media (min-width: 655px) {
+            .gallery img:nth-of-type(1) {
+                width: 400px;
+            }
+            .gallery img:nth-of-type(4) {
+                width: 400px;
+            }
+            .gallery img:nth-of-type(5) {
+                width: 400px;
+            }
+            .gallery img:nth-of-type(8) {
+                width: 400px;
+            }
+        }
+
+        #lightbox {
+            z-index: 200;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100dvh;
+            height: 100vh;
+            background: rgba(0,0,0,0.8);
+            display: grid;
+            place-items: center;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
         }
     </style>
 </head>
@@ -95,24 +161,25 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#galetas">Le&nbsp;Galetas</a></li>
+                <li><h1><a href="#galetas">Le&nbsp;Galetas</a></h1></li>
                 <li><a href="#hakeminen">Hakeminen</a></li>
                 <li><a href="#galleria">Galleria</a></li>
                 <li><a href="#linkit">Linkkejä</a></li>
             </ul>
+            <!-- <button>Fi</button><button>Fr</button> -->
         </nav>
     </header>
-    <!-- Hero -->
     <div class="sectionwrapper">
         <section class="hero">
             <img src="./logo.png" alt="">
-            <h1>Kirjoitusresidenssi Le Galetas</h1>
-            <p>Ullakkohuoneisto luovan työn tekijöille</p>
+            <!-- <h1>Kirjoitusresidenssi Le Galetas</h1> -->
+            <!-- <p>Ullakkohuoneisto luovan työn tekijöille</p> -->
             <p>
-                Le Galetas tarjoaa viihtyisät työskentelyolosuhteet
-                keskellä Ranskaa omaperäisessä Thiersin kaupungissa
-                1870-luvun kivitalon vasta valmistuneessa ullakkokerroksessa,
-                josta on vaikuttavat näkymät Chaîne des Puys -tulivuorijonolle.
+                Kirjoitusresidenssi Le Galetas tarjoaa luovan työn tekijöille 
+                viihtyisät työskentelyolosuhteet keskellä Ranskaa omaperäisessä 
+                Thiersin kaupungissa 1870-luvun kivitalon vasta valmistuneessa 
+                ullakkohuoneistossa, josta on vaikuttavat näkymät Chaîne des 
+                Puys -tulivuorijonolle.
             </p>
         </section>
     </div>
@@ -164,13 +231,14 @@
         <section id="galleria">
             <h2>Kuvagalleria</h2>
             <div class="gallery">
-                <img src="https://placekitten.com/300/500" alt="kuva 1">
-                <img src="https://placekitten.com/300/200" alt="kuva 2">
-                <img src="https://placekitten.com/300/400" alt="kuva 3">
-                <img src="https://placekitten.com/300/550" alt="kuva 4">
-                <img src="https://placekitten.com/300/300" alt="kuva 5">
-                <img src="https://placekitten.com/400/400" alt="kuva 6">
-                <img src="https://placekitten.com/400/300" alt="kuva 7">
+                <img src="/gallery/medium/D.jpg" alt="">
+                <img src="/gallery/medium/E.jpg" alt="">
+                <img src="/gallery/medium/B.jpg" alt="">
+                <img src="/gallery/medium/A.jpg" alt="">
+                <img src="/gallery/medium/F.jpg" alt="">
+                <img src="/gallery/medium/G.jpg" alt="">
+                <img src="/gallery/medium/H.jpg" alt="">
+                <img src="/gallery/medium/I.jpg" alt="">
             </div>
         </section>
     </div>
@@ -192,5 +260,28 @@
         </section>
     </div>
 </div>
+
+<div id="lightbox" style="display:none">
+
+</div>
+
+<script>
+    const gallery = document.querySelector('.gallery')
+    const lightbox = document.querySelector('#lightbox')
+
+    // Click or touch image to open lightbox
+    gallery.addEventListener('click', (e) => {
+        console.log(e.target.tagName)
+        if (e.target.tagName === 'IMG') {
+            lightbox.innerHTML = `<img src="${e.target.src.replace('medium/', '').replace('small/', '')}" alt="">`
+            lightbox.style.display = 'grid'
+        }
+    })
+
+    lightbox.addEventListener('click', (e) => {
+        lightbox.style.display = 'none'
+    })
+</script>
+
 </body>
 </html>
